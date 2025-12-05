@@ -2,11 +2,11 @@ import { Request, Response, NextFunction } from 'express'
 import admin from 'firebase-admin'
 
 // Initialize Firebase Admin SDK
-const serviceAccount = require('../../windyflo-firebase-adminsdk.json')
+const serviceAccount = require('')
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount as admin.ServiceAccount),
     // databaseURL: 'gs://windyflo.appspot.com'
-    databaseURL: 'https://windyflo-default-rtdb.firebaseio.com'
+    databaseURL: ''
 })
 
 export const getFirebaseAdmin = () => {
@@ -32,7 +32,8 @@ export const verifyToken = async (req: Request, res: Response, next: NextFunctio
         req.user = decodedToken
         next()
     } catch (error) {
-        console.error('Error verifying Firebase ID token:', error)
+        console.error('Error verifying ID token:', error)
         res.status(401).json({ error: 'Unauthorized' })
     }
 }
+
