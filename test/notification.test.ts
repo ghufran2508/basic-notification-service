@@ -1,12 +1,15 @@
 
 import request from 'supertest';
-import {start} from '../src/server';
+import { start } from '../src/server';
+import { getRunningExpressApp } from '../src/utils/getRunningExpressApp'
+import { Application } from 'express';
 
 describe('Notification API', () => {
-  let app;
+  let app: Application;
 
   beforeAll(async () => {
-    app = await start();
+    await start();
+    app = getRunningExpressApp().app;
   });
 
   it('should return a 200 response for the health check', async () => {
@@ -24,7 +27,8 @@ describe('Notification API', () => {
       .post('/api/notifications')
       .send({
         user_id: 'test-user',
-        message: 'This is a test notification',
+        title: 'Test Notification',
+        message: '{}',
       });
     expect(response.status).toBe(201);
   });

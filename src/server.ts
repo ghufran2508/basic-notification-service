@@ -12,8 +12,8 @@ import { DataSource } from 'typeorm'
 // Load environment variables
 dotenv.config()
 
-class NotificationServer {
-    private app: Application
+export class NotificationServer {
+    app: Application
     private AppDataSource: DataSource = getDataSource()
     private server: http.Server
     private notificationService: NotificationService
@@ -55,7 +55,7 @@ class NotificationServer {
         // Health check
         this.app.get('/health', (req: Request, res: Response) => {
             const wsStats = this.wsService.getStats()
-            res.json({
+            return res.status(200).json({
                 status: 'healthy',
                 timestamp: new Date().toISOString(),
                 websocket: wsStats
