@@ -1,7 +1,6 @@
 import { WebSocketServer, WebSocket } from 'ws'
 import { Server } from 'http'
 import { INotification, WebSocketMessage } from '../../utils/Interface'
-import { verifyTokenByToken } from '../../utils/firebaseAuth'
 
 export class WebSocketService {
     private wss: WebSocketServer
@@ -94,8 +93,6 @@ export class WebSocketService {
     }
 
     private async subscribe(user_id: string, ws: WebSocket, token: string): Promise<void> {
-        const user = await verifyTokenByToken(token)
-        if (!user) return
         if (!this.clients.has(user_id)) {
             this.clients.set(user_id, new Set())
         }

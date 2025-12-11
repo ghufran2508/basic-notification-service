@@ -5,10 +5,10 @@
   "main": "dist/server",
   "types": "dist/server.d.ts",
   "bin": {
-      "flowise": "./bin/run"
+      "notification-service": "./bin/run"
   },
   "oclif": {
-      "bin": "flowise",
+      "bin": "notification-service",
       "commands": "./dist/commands"
   },
   "scripts": {

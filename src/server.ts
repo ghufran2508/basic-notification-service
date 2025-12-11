@@ -8,7 +8,6 @@ import { createNotificationRoutes } from './routes/notification'
 import { NotificationService } from './service/notification'
 import { WebSocketService } from './service/websocket'
 import { DataSource } from 'typeorm'
-import { verifyToken } from './utils/firebaseAuth'
 
 // Load environment variables
 dotenv.config()
@@ -64,7 +63,7 @@ class NotificationServer {
         })
 
         // API routes
-        this.app.use('/api/notifications', verifyToken, createNotificationRoutes(this.notificationService))
+        this.app.use('/api/notifications', createNotificationRoutes(this.notificationService))
 
         // 404 handler
         this.app.use((req: Request, res: Response) => {
