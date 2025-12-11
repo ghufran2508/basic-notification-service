@@ -37,11 +37,17 @@
     "firebase-admin": "^12.1.0",
     "ws": "^8.14.2",
     "typeorm": "^0.3.17",
-    "sqlite3": "^5.1.6",
+    "sqlite3": "^5.1.7",
     "reflect-metadata": "^0.1.13",
     "uuid": "^9.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+        "faiss-node",
+        "sqlite3"
+    ]
   },
   "devDependencies": {
     "@types/express": "^4.17.20",

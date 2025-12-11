@@ -27,7 +27,7 @@ importers:
         specifier: ^0.1.13
         version: 0.1.14
       sqlite3:
-        specifier: ^5.1.6
+        specifier: ^5.1.7
         version: 5.1.7
       typeorm:
         specifier: ^0.3.17
